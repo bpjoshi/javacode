@@ -1,4 +1,4 @@
-package com.bp.waitnotify;
+package com.bp.concurrency.waitnotify;
 
 /**
  * @author Bhagwati Prasad

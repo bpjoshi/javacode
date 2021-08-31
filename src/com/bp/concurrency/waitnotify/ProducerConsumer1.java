@@ -1,33 +1,23 @@
-package com.bp.waitnotify;
+package com.bp.concurrency.waitnotify;
 
 /**
  * @author Bhagwati Prasad
- * Naive implementation 2 that synchronizes on common lock object
- * lock must be same as they both share the same data i.e. buffer
- * accesses will only be synchronized if the lock is same
- * but this will be a disaster as the thread that has lock object waits inside while
- * without releasing monitor and other thread will be waiting for lock object to
- * produce or consume (depends on which thread has the lock )
+ * Naive implementation that contains race condition
  */
-public class ProducerConsumer2 {
-    private static final Object lock= new Object();
+public class ProducerConsumer1 {
     static int[] buffer=null;
     static int count;
 
     static class Producer{
         void produce(){
-            synchronized (lock){
-                while(isBufferFull()){}
-                buffer[count++]=1;
-            }
+            while(isBufferFull()){}
+            buffer[count++]=1;
         }
     }
     static class Consumer{
         void consume(){
-            synchronized (lock){
-                while(isBufferEmpty()){}
-                buffer[--count]=0;
-            }
+            while(isBufferEmpty()){}
+            buffer[--count]=0;
         }
     }
 
