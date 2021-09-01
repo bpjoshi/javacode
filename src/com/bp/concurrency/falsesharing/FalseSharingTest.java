@@ -2,6 +2,8 @@ package com.bp.concurrency.falsesharing;
 
 /**
  * @author Bhagwati Prasad
+ * Bench Marking perfromance with Padded and Uppadded for cache miss scenarios
+ * caused due to false sharing
  */
 public class FalseSharingTest {
     public static int NUM_THREADS_MAX = 4 ;
