@@ -1,48 +1,23 @@
-package com.bp.concurrency.waitnotify;
+package com.bpjoshi.concurrency.waitnotify;
 
 /**
  * @author Bhagwati Prasad
- * Mature Implementation of Producer Consumer with
- * wait/notify pattern
- * when the buffer is full, producer thread waits, having notified consumer threads already at the time of producing
- * when the buffer is empty, consumer thread wait, having notified producer thread already at the time of consuming
- * we can change consumer size to validate the result i.e. easy consume only 40 then count must be 10 at the end
+ * Naive implementation that contains race condition
  */
-public class ProducerConsumer3 {
-    private static final Object lock= new Object();
+public class ProducerConsumer1 {
     static int[] buffer=null;
     static int count;
 
     static class Producer{
-        void produce() {
-            synchronized (lock){
-                while(isBufferFull()){
-                    try{
-                        lock.wait();
-                    }catch (InterruptedException e){
-                        e.printStackTrace();
-                    }
-
-                }
-                buffer[count++]=1;
-                lock.notify();
-            }
+        void produce(){
+            while(isBufferFull()){}
+            buffer[count++]=1;
         }
     }
     static class Consumer{
         void consume(){
-            synchronized (lock){
-                while(isBufferEmpty()){
-                    try {
-                        lock.wait();
-                    }catch (InterruptedException e){
-                        e.printStackTrace();
-                    }
-
-                }
-                buffer[--count]=0;
-                lock.notify();
-            }
+            while(isBufferEmpty()){}
+            buffer[--count]=0;
         }
     }
 

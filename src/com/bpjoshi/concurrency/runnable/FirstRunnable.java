@@ -1,4 +1,4 @@
-package com.bp.concurrency.runnable;
+package com.bpjoshi.concurrency.runnable;
 /**
  * @author Bhagwati Prasad
  */

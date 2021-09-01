@@ -1,4 +1,4 @@
-package com.bp.concurrency.falsesharing;
+package com.bpjoshi.concurrency.falsesharing;
 
 /**
  * @author Bhagwati Prasad

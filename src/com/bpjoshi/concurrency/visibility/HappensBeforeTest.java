@@ -1,15 +1,13 @@
-package com.bp.concurrency.visibility;
+package com.bpjoshi.concurrency.visibility;
 
 /**
  * @author Bhagwati Prasad
- * runnable2 prints incosistently either 1 or 2
- * because there is no happens before link for the variable x
- * shared between t2 threads executing different portion of code
- * on the same object v
+ * The code works fine because variables are accessed
+ * either Synchronized way or volatile way for a happens before link
  */
-public class NoHappensBeforeTest {
+public class HappensBeforeTest {
     public static void main(String[] args) throws InterruptedException {
-        NoHappensBefore v= new NoHappensBefore();
+        HappensBefore v= new HappensBefore();
         Runnable runnable1= ()->{v.incrementValue();};
         Runnable runnable2=()->{v.print();};
         Thread t1=new Thread(runnable1);

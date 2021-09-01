@@ -1,4 +1,4 @@
-package com.bp.concurrency.visibility;
+package com.bpjoshi.concurrency.visibility;
 
 /**
  * @author Bhagwati Prasad

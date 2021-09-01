@@ -1,4 +1,4 @@
-package com.bp.concurrency.visibility;
+package com.bpjoshi.concurrency.visibility;
 /**
  * @author Bhagwati Prasad
  * This code will give inconsistent results in a multithread environment

@@ -1,4 +1,4 @@
-package com.bp.concurrency.visibility;
+package com.bpjoshi.concurrency.visibility;
 /**
  * @author Bhagwati Prasad
  * happens before link due to x being volatile
